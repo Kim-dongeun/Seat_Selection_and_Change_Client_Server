@@ -1,0 +1,23 @@
+
+use wb39;
+
+drop table if exists Student;
+create table Student
+(
+		id varchar(20) primary key,
+        pw varchar(20) not null,
+        name varchar(20) not null
+);
+
+
+drop table if exists Seat;
+create table Seat
+(
+		Sit_Num varchar(20) primary key,
+		id varchar(20) not null,
+		FOREIGN KEY (id) REFERENCES Student(id)
+);
+
+
+-- 전체정보 출력
+select * from Seat join Student using(id);
