@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="84b6b849-19f7-457e-9f42-b0a3081e5a0a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://127.0.0.1:9000/GetService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GetService3.xsd" MetadataType="Schema" ID="7f2a8140-afd4-4b8f-897d-41c7eb4c8848" SourceId="1" SourceUrl="http://127.0.0.1:9000/GetService?xsd=xsd1" />
+    <MetadataFile FileName="GetService31.xsd" MetadataType="Schema" ID="db652dd3-96ad-4169-8ba6-568e5ba13fe2" SourceId="1" SourceUrl="http://127.0.0.1:9000/GetService?xsd=xsd2" />
+    <MetadataFile FileName="StudentService1.wsdl" MetadataType="Wsdl" ID="bcb0a422-b850-4dd0-bd2c-f24d323aa97d" SourceId="1" SourceUrl="http://127.0.0.1:9000/GetService?wsdl" />
+    <MetadataFile FileName="GetService1.disco" MetadataType="Disco" ID="57e49a00-86bb-4141-8f24-7a0af824b0e0" SourceId="1" SourceUrl="http://127.0.0.1:9000/GetService?disco" />
+    <MetadataFile FileName="GetService32.xsd" MetadataType="Schema" ID="f61ae5db-e09b-4106-98ca-db585ae116dc" SourceId="1" SourceUrl="http://127.0.0.1:9000/GetService?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="StudentService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IStudent_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://127.0.0.1:9000/GetService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://127.0.0.1:9000/GetService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://127.0.0.1:9000/GetService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/_0508_%EC%9E%90%EB%A6%AC%EB%B0%B0%EC%B9%98_%EC%84%9C%EB%B2%84" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IStudent_AddMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMember" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_AddMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_LogIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_LogIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_Choose_Seat_InputMessage">
+    <wsdl:part name="parameters" element="tns:Choose_Seat" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_Choose_Seat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Choose_SeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_PrintAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAll" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_PrintAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_Join_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Join" />
+  </wsdl:message>
+  <wsdl:message name="IStudent_Update_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IStudent">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AddMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStudent/AddMember" message="tns:IStudent_AddMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStudent/AddMemberResponse" message="tns:IStudent_AddMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="LogIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStudent/LogIn" message="tns:IStudent_LogIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStudent/LogInResponse" message="tns:IStudent_LogIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Choose_Seat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStudent/Choose_Seat" message="tns:IStudent_Choose_Seat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStudent/Choose_SeatResponse" message="tns:IStudent_Choose_Seat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="PrintAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStudent/PrintAll" message="tns:IStudent_PrintAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStudent/PrintAllResponse" message="tns:IStudent_PrintAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Join">
+      <wsdl:output wsaw:Action="http://tempuri.org/IStudent/Join" message="tns:IStudent_Join_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Update">
+      <wsdl:output wsaw:Action="http://tempuri.org/IStudent/Update" message="tns:IStudent_Update_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IStudent" type="tns:IStudent">
+    <wsp:PolicyReference URI="#NetTcpBinding_IStudent_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="AddMember">
+      <soap12:operation soapAction="http://tempuri.org/IStudent/AddMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap12:operation soapAction="http://tempuri.org/IStudent/LogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Choose_Seat">
+      <soap12:operation soapAction="http://tempuri.org/IStudent/Choose_Seat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintAll">
+      <soap12:operation soapAction="http://tempuri.org/IStudent/PrintAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Join">
+      <soap12:operation soapAction="http://tempuri.org/IStudent/Join" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://tempuri.org/IStudent/Update" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StudentService">
+    <wsdl:port name="NetTcpBinding_IStudent" binding="tns:NetTcpBinding_IStudent">
+      <soap12:address location="net.tcp://127.0.0.1:8000/Seat" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://127.0.0.1:8000/Seat</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

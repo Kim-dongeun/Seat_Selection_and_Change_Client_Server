@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/_0508_%EC%9E%90%EB%A6%AC%EB%B0%B0%EC%B9%98_%EC%84%9C%EB%B2%84" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/_0508_%EC%9E%90%EB%A6%AC%EB%B0%B0%EC%B9%98_%EC%84%9C%EB%B2%84" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Student">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sit_Num" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Student" nillable="true" type="tns:Student" />
+  <xs:complexType name="ArrayOfStudent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStudent" nillable="true" type="tns:ArrayOfStudent" />
+</xs:schema>
