@@ -59,3 +59,5 @@ MySQL과 연동하여 좌석번호 및 사용자 이름 저장
 MySQL 연결 정보 및 포트는 설정 파일에서 조정
 
 .NET Framework 기반이므로 관련 환경 구성 필요
+
+필요한 NuGet 패키지는 `packages.config`에 명시되어 있으며, 'NuGet 패키지 복원'을 해야합니다. 
